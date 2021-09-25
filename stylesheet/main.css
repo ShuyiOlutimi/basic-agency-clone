@@ -153,7 +153,7 @@ video {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    max-width: var(--measure);
+    /* max-width: var(--measure); */
     padding-left: var(--s0);
     padding-right: var(--s0);
     display: flex;
@@ -180,8 +180,8 @@ video {
     flex-basis: calc((40rem - 100%) * 999);
 }
 
-.switcher> :nth-last-child(n+ 3),
-.switcher> :nth-last-child(n+ 3)~* {
+.switcher> :nth-last-child(n+ 4),
+.switcher> :nth-last-child(n+ 4)~* {
     flex-basis: 100%;
 }
 
