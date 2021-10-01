@@ -78,9 +78,9 @@ textarea {
 :root {
     /* Font  */
     font-family: acumin-pro, sans-serif;
-    line-height: 2.5rem;
 
     /* Font sizes */
+    --fs-14: .875rem;
     --fs-16: 1rem;
     --fs-18: 1.125rem;
     --fs-20: 1.25rem;
@@ -95,12 +95,14 @@ textarea {
     --fw-900: 900;
 
     /* Colours */
-    --clr-black: #000;
-    --clr-dark: #252422;
-    --clr-grey: #5E5E5E;
-    --clr-white: #fff;
-    --clr-offwhite: #E5E5E5;
-    --clr-pink: #F2CFCE;
+    --clr-white:#fff;
+    --clr-wild-sand:#f4f4f4;
+    --clr-gallery:#eaeaea;
+    --clr-azalea:#f9cdcd;
+    --clr-scorpion:#5e5e5e;
+    --clr-tuatara:#252422;
+    --clr-cod-gray:#191918;
+    --clr-black:#000;
 
     /* Modular Scales */
     --ratio: 1.61803398875;
@@ -122,7 +124,31 @@ textarea {
 }
 
 /* ELEMENT STYLING */
+h1 {
+    font-size: var(--fs-40);
+}
 
+p {
+    font-size: var(--fs-20);
+}
+
+a {
+    all: unset;
+    font-size: var(--fs-16);
+    font-weight: 500;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    all: unset;
+    border: 2px solid var(--clr-black);
+    border-radius: 100vw;
+    padding-block: var(--s-1);
+    padding-inline: var(--s1);
+}
 
 video {
     max-width: 100%;
@@ -131,9 +157,8 @@ video {
 
 /* lAYOUT STYLING */
 .container {
-    padding-inline-start: var(--s1);
-    padding-inline-end: var(--s1);
-    padding-block: 1rem;
+    padding-inline-start: var(--s2);
+    padding-inline-end: var(--s2);
     max-width: 80rem;
     margin-inline-start: auto;
     margin-inline-end: auto;
@@ -152,18 +177,18 @@ video {
     margin-top: var(--s3);
 }
 
-.tight-stack {
+/* .tight-stack {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-}
+  } */
 
-.tight-stack>* {
+.tight-stack > * {
     margin-top: 0;
     margin-bottom: 0;
 }
 
-.tight-stack>*+* {
+.tight-stack > *+* {
     margin-top: var(--s1);
 }
 
@@ -245,6 +270,10 @@ video {
 }
 
 /* SECTIONAL STYLING */
+body {
+    background-color: var(--clr-wild-sand);
+}
+
 header {
     display: flex;
     justify-content: space-between;
