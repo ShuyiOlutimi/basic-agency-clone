@@ -453,7 +453,7 @@ form {
 }
 input[type="email"] {
     all: unset;
-    min-width: 20rem;
+    min-width: 18rem;
     padding-block-end: .5rem;
 }
 
