@@ -131,23 +131,25 @@ h3,
 p,
 a,
 button {
-    font-size: min(var(--fluid-type-min) + 1vw, var(--fluid-type-max));
+    font-size: clamp(var(--fluid-type-min, 1rem),
+            calc(1rem + var(--fluid-type-target, 3vw)),
+            var(--fluid-type-max, 1.3rem));
 }
 
 h1 {
     --fluid-type-min: 2.5rem;
-    --fluid-type-max: 4rem;
-    --fluid-type-target: 4vw;
+    --fluid-type-max: 5rem;
+    --fluid-type-target: 5vw;
 }
 
 h2 {
-    --fluid-type-min: 1.5rem;
-    --fluid-type-max: 2.5rem;
+    --fluid-type-min: 1.8rem;
+    --fluid-type-max: 3rem;
 }
 
 h3 {
     --fluid-type-min: 1.5rem;
-    --fluid-type-max: 1.8rem;
+    --fluid-type-max: 2.5rem;
 }
 
 h2,
@@ -155,14 +157,15 @@ h3 {
     max-width: 30ch;
 }
 
-p,
+
+/* p,
 a,
 button {
-    --fluid-type-min: 1rem;
-    --fluid-type-max: 1.8rem;
-    --fluid-type-target: 1vw;
+    --fluid-type-min: 1vw;
+    --fluid-type-max: 1.5rem;
+    --fluid-type-target: 1rem;
     max-width: 60ch;
-}
+} */
 
 a {
     all: unset;
@@ -376,8 +379,8 @@ header {
 /* WORK CTA */
 #work {
     flex-direction: column;
-    margin-block-start: min(var(--s1) + 10vw, var(--s5));
-    margin-block-end: min(var(--s1) + 10vw, var(--s5));
+    margin-block-start: min(var(--s2) + 10vw, var(--s5));
+    margin-block-end: min(var(--s2) + 10vw, var(--s5));
 }
 
 #work article {
@@ -517,7 +520,7 @@ header {
 /* CONNECT */
 #contact {
     padding-block-start: var(--s3);
-    padding-block-end: var(--s3);
+    padding-block-end: var(--s1);
     background-color: var(--clr-tuatara);
     color: var(--clr-wild-sand);
 }
@@ -544,6 +547,10 @@ input[type="email"] {
 
 #contact a:hover {
     text-decoration: 3px underline var(--clr-azalea);
+}
+
+#contact>div>p {
+    margin-block-start: var(--s3);
 }
 
 /* FOOTER */
