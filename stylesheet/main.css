@@ -125,18 +125,55 @@ textarea {
 }
 
 /* ELEMENT STYLING */
-h1 {
-    font-size: var(--fs-40);
+h1,
+h2,
+h3,
+p,
+a,
+button {
+    font-size: min(var(--fluid-type-min) + 1vw, var(--fluid-type-max));
 }
 
-p {
-    font-size: var(--fs-18);
+h1 {
+    --fluid-type-min: 2.5rem;
+    --fluid-type-max: 4rem;
+    --fluid-type-target: 4vw;
+}
+
+h2 {
+    --fluid-type-min: 1.5rem;
+    --fluid-type-max: 2.5rem;
+}
+
+h3 {
+    --fluid-type-min: 1.5rem;
+    --fluid-type-max: 1.8rem;
+}
+
+h2,
+h3 {
+    max-width: 30ch;
+}
+
+p,
+a,
+button {
+    --fluid-type-min: 1rem;
+    --fluid-type-max: 1.8rem;
+    --fluid-type-target: 1vw;
+    max-width: 60ch;
 }
 
 a {
     all: unset;
-    font-size: var(--fs-16);
-    font-weight: 500;
+    font-weight: var(--fw-700);
+    text-decoration: none;
+    transition: text-decoration 500ms ease-in-out;
+    will-change: text-decoration;
+}
+
+a:hover {
+    text-decoration: underline 3px var(--clr-cod-gray);
 }
 
 ul {
@@ -146,11 +183,16 @@ ul {
 
 button {
     all: unset;
-    font-size: var(--fs-12);
     border: 1px solid var(--clr-black);
     border-radius: 100vw;
     padding-block: var(--s-1);
     padding-inline: var(--s1);
+}
+
+button:hover {
+    background-color: var(--clr-black);
+    color: var(--clr-wild-sand);
+    font-weight: var(--fw-700);
 }
 
 video {
@@ -159,7 +201,7 @@ video {
 }
 
 hr {
-    
+
     background-color: var(--clr-black);
 }
 
@@ -178,7 +220,7 @@ hr {
 }
 
 .stack>*+* {
-    margin-top: var(--s3);
+    margin-top: var(--s1);
 }
 
 .tight-stack>* {
@@ -187,7 +229,7 @@ hr {
 }
 
 .tight-stack>*+* {
-    margin-top: var(--s2);
+    margin-top: var(--s1);
 }
 
 .center {
@@ -235,25 +277,25 @@ hr {
 }
 
 .reel::-webkit-scrollbar {
-    height: 4px;
+    height: 8px;
     border-radius: 100vw;
-  }
-  
-  .reel::-webkit-scrollbar-track {
+}
+
+.reel::-webkit-scrollbar-track {
     background-color: #ffffff00;
-  }
-  
-  .reel::-webkit-scrollbar-thumb {
+}
+
+.reel::-webkit-scrollbar-thumb {
     border-radius: 100vw;
-    background: var(--clr-scorpion);
-  }
-  
-  @supports (scrollbar-color: var(--clr-white) var(--clr-pale)) {
+    background: var(--clr-cod-gray);
+}
+
+@supports (scrollbar-color: var(--clr-white) var(--clr-pale)) {
     .reel {
-      scrollbar-color: var(--clr-black) #ffffff00;
-      scrollbar-width: thin;
+        scrollbar-color: var(--clr-cod-gray) #ffffff00;
+        scrollbar-width: thin;
     }
-  }
+}
 
 .reel>* {
     flex: 0 0 auto;
@@ -267,7 +309,7 @@ hr {
 }
 
 .reel>*+* {
-    margin-left: 1rem;
+    margin-left: .75rem;
 }
 
 .reel.overflowing {
@@ -279,10 +321,6 @@ hr {
     width: 1cap;
     height: 0.75em;
     height: 1cap;
-}
-
-.text-clip {
-    max-width: var(--measure);
 }
 
 .bold {
@@ -309,6 +347,11 @@ header {
 }
 
 /* HERO */
+
+.hero {
+    margin-block-start: min(var(--s1) + 1vw, var(--s3));
+}
+
 .hero>h1>span {
     display: block;
     text-align: right;
@@ -333,7 +376,8 @@ header {
 /* WORK CTA */
 #work {
     flex-direction: column;
-    margin-block-end: var(--s5);
+    margin-block-start: min(var(--s1) + 10vw, var(--s5));
+    margin-block-end: min(var(--s1) + 10vw, var(--s5));
 }
 
 #work article {
@@ -350,14 +394,33 @@ header {
 }
 
 /* CLIENT REEL */
-.clients > h2 {
+.clients>h2 {
     margin-block-start: var(--s2);
-    margin-block-end: var(--s4);
+    margin-block-end: clamp(var(--s1), var(--s1) + 10vw, var(--s3));
 }
 
 .card {
-    padding: var(--s1);
+    padding: var(--s-1);
     align-items: stretch;
+    max-width: 60ch
+}
+
+@media (max-width: 714px) {
+    .card {
+        max-width: 45ch;
+    }
+}
+
+@media (max-width: 450px) {
+    .card {
+        max-width: 30ch;
+    }
+}
+
+@media (max-width: 380px) {
+    .card {
+        max-width: 25ch;
+    }
 }
 
 .card,
@@ -372,17 +435,16 @@ header {
 
 .card .text {
     flex-grow: 1;
-    max-width: 60ch;
-    margin-block-start: var(--s3);
+    margin-block-start: min(var(--s1) + 5vw, var(--s3));
 }
 
 .card .img {
     margin-block-end: 0.75rem;
 }
 
-.card  > *+*,
-.card .img > *+*,
-.card .text > *+*{
+.card>*+*,
+.card .img>*+*,
+.card .text>*+* {
     margin-block-start: 1rem;
 }
 
@@ -392,16 +454,31 @@ header {
     border-radius: 100vh;
 }
 
+.card p {
+    --fluid-type-min: var(--fs-14);
+    --fluid-type-max: var(--fs-18);
+    --fluid-type-target: var(--fs-16);
+}
+
 /* CULTURE CTA */
 .culture {
-    padding-block-start: var(--s5);
-    padding-block-end: var(--s4);
+    padding-block-start: min(var(--s2) + 5vw, var(--s4));
+    padding-block-end: min(var(--s2) + 5vw, var(--s4));
     background-color: var(--clr-tuatara);
     color: var(--clr-azalea);
 }
 
+.culture .switcher {
+    align-items: center;
+}
+
 .culture button {
     border-color: var(--clr-azalea);
+}
+
+.culture button:hover {
+    background-color: var(--clr-azalea);
+    color: var(--clr-tuatara);
 }
 
 .culture .video {
@@ -410,7 +487,7 @@ header {
 
 /* NEWS SECTION */
 .news {
-    margin-block-end: var(--s4);
+    margin-block-end: min(var(--s2) + 10vw, var(--s5));
 }
 
 .news .cluster {
@@ -418,17 +495,21 @@ header {
     margin-block-end: var(--s2);
 }
 
-.news-item > article {
+.news.tight-stack>*+* {
+    margin-block-start: var(--s1);
+}
+
+.news-item>article {
     display: grid;
     gap: var(--s1);
 }
 
-.news-item > article > p:first-of-type {
+.news-item>article>p:first-of-type {
     font-size: var(--fs-20);
     font-weight: var(--fw-700);
 }
 
-.news-item > article > p:last-of-type {
+.news-item>article>p:last-of-type {
     font-size: var(--fs-16);
     align-self: end;
 }
@@ -451,6 +532,7 @@ form {
     align-items: center;
     border-block-end: .1rem solid var(--clr-wild-sand);
 }
+
 input[type="email"] {
     all: unset;
     padding-block-end: .5rem;
@@ -460,8 +542,12 @@ input[type="email"] {
     all: unset;
 }
 
+#contact a:hover {
+    text-decoration: 3px underline var(--clr-azalea);
+}
+
 /* FOOTER */
-footer.container {
+footer.footer {
     margin-block-start: 0;
 }
 
@@ -471,11 +557,14 @@ footer {
     color: var(--clr-scorpion);
 }
 
-footer p,
-footer a {
-    font-size: var(--fs-12);
+footer a:hover {
+    text-decoration: 3px underline var(--clr-azalea);
 }
 
-footer p + p {
+footer p {
+    font-size: var(--fs-14);
+}
+
+footer p+p {
     margin-block-start: var(--s-2);
 }
