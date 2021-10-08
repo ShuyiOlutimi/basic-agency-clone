@@ -530,6 +530,10 @@ form {
     border-block-end: .1rem solid var(--clr-wild-sand);
 }
 
+label {
+    color: var(--clr-scorpion);
+}
+
 input[type="email"] {
     all: unset;
     padding-block-end: .5rem;
