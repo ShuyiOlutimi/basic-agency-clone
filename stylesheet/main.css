@@ -581,4 +581,5 @@ footer p+p {
 /* FOCUS STYLING */
 :focus {
     outline: 3px solid currentColor;
+    outline-offset: .2rem;
 }
