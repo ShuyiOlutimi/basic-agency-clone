@@ -569,3 +569,21 @@ footer p {
 footer p+p {
     margin-block-start: var(--s-2);
 }
+
+/* FOCUS STYLING */
+body :focus {
+    outline: 3px solid var(--clr-tuatara);
+    outline-offset: 3px;
+}
+
+#contact :focus,
+button:focus {
+    outline: 3px solid var(--clr-scorpion);
+    outline-offset: 3px;
+}
+
+footer :focus,
+#culture button:focus {
+    outline: 3px solid var(--clr-azalea);
+    outline-offset: 3px;
+}
