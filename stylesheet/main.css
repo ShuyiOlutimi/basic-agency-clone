@@ -539,6 +539,10 @@ input[type="email"] {
     all: unset;
 }
 
+#contact h2 {
+    font-size: var(--fs-20);
+}
+
 #contact a:hover {
     text-decoration: 3px underline var(--clr-azalea);
 }
